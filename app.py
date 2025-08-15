@@ -80,7 +80,7 @@ def new_question():
     df = st.session_state.data
     available_indices = set(df.index) - st.session_state.used_indices
     if not available_indices:
-        st.success("已完成所有題目！")
+        st.success("Finish！")
         return
     idx = random.choice(list(available_indices))
     st.session_state.used_indices.add(idx)
@@ -117,7 +117,7 @@ else:
     st.markdown(f"<div class='example'>{st.session_state.example}</div>", unsafe_allow_html=True)
 
     if st.session_state.show_answer:
-        st.info(f"正確答案：{st.session_state.correct}")
+        st.info(f"Correct Answer：{st.session_state.correct}")
 
-    st.session_state.input_text = st.text_input("請輸入中文意思", value=st.session_state.input_text)
-    st.button("確認", on_click=confirm_answer)
+    st.session_state.input_text = st.text_input("Please translate the word", value=st.session_state.input_text)
+    st.button("Submit", on_click=confirm_answer)
